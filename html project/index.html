@@ -44,9 +44,40 @@
             top: 20px;
             right: 20px;
         }
+        nav {
+            background-color: #f0f0f0;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex; /* Flex layout for horizontal alignment */
+            align-items: center; /* Vertical center alignment */
+            justify-content: flex-start; /* Align items to the left */
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 20px; /* Larger padding */
+            margin: 0 10px;
+            font-size: 18px; /* Larger font size */
+            border-radius: 5px; /* Rounded corners for aesthetic */
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="pricing.html" id="nav-pricing">Цінова політика</a>
+        <a href="privacy.html" id="nav-privacy">Політика конфіденційності</a>
+        <a href="about.html" id="nav-about">Про нас</a>
+        <a href="advertising.html" id="nav-advertising">Реклама</a>
+        <a href="support.html" id="nav-support">Служба підтримки</a>
+    </nav>
+
     <select id="language-select" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
         <option value="uk" selected>Українська</option>
@@ -60,18 +91,52 @@
 
     <script>
         function changeLanguage(language) {
-            var freelancersText = {
-                en: 'For freelancers',
-                uk: 'Фрілансерам',
-                pl: 'Dla freelancerów'
+            var texts = {
+                freelancers: {
+                    en: 'For freelancers',
+                    uk: 'Фрілансерам',
+                    pl: 'Dla freelancerów'
+                },
+                clients: {
+                    en: 'For clients',
+                    uk: 'Замовникам',
+                    pl: 'Dla klientów'
+                },
+                pricing: {
+                    en: 'Pricing',
+                    uk: 'Цінова політика',
+                    pl: 'Cennik'
+                },
+                privacy: {
+                    en: 'Privacy Policy',
+                    uk: 'Політика конфіденційності',
+                    pl: 'Polityka prywatności'
+                },
+                about: {
+                    en: 'About Us',
+                    uk: 'Про нас',
+                    pl: 'O nas'
+                },
+                advertising: {
+                    en: 'Advertising',
+                    uk: 'Реклама',
+                    pl: 'Reklama'
+                },
+                support: {
+                    en: 'Support',
+                    uk: 'Служба підтримки',
+                    pl: 'Wsparcie'
+                }
             };
-            var clientsText = {
-                en: 'For clients',
-                uk: 'Замовникам',
-                pl: 'Dla klientów'
-            };
-            document.getElementById('freelancers-button').textContent = freelancersText[language];
-            document.getElementById('clients-button').textContent = clientsText[language];
+
+            // Update text for buttons and links
+            document.getElementById('freelancers-button').textContent = texts.freelancers[language];
+            document.getElementById('clients-button').textContent = texts.clients[language];
+            document.getElementById('nav-pricing').textContent = texts.pricing[language];
+            document.getElementById('nav-privacy').textContent = texts.privacy[language];
+            document.getElementById('nav-about').textContent = texts.about[language];
+            document.getElementById('nav-advertising').textContent = texts.advertising[language];
+            document.getElementById('nav-support').textContent = texts.support[language];
         }
     </script>
 </body>
