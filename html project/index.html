@@ -2,23 +2,23 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Сайт для фрілансерів</title>
+    <title>Основний вхід</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Запобігає прокрутці, якщо відео велике */
+            overflow: hidden; /* Prevents scrolling if the video is large */
         }
         .video-background {
-            position: fixed; /* Фіксує відео на фоні */
+            position: fixed; /* Keeps the video in the background */
             right: 0;
             bottom: 0;
             min-width: 100%; 
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -100; /* Забезпечує, що відео залишається під текстом та іншими елементами */
+            z-index: -100; /* Ensures the video stays behind text and other elements */
         }
         .content {
             position: relative;
@@ -33,14 +33,15 @@
             margin: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; /* Removes underline from links */
+            display: inline-block; /* Ensures proper spacing and sizing as a button */
+            color: white; /* Ensures text color remains white */
         }
         .freelancers {
             background-color: #4CAF50;
-            color: white;
         }
         .clients {
             background-color: #008CBA;
-            color: white;
         }
         .freelancers:hover, .clients:hover {
             background-color: #333;
@@ -81,7 +82,7 @@
 <body>
     <video autoplay loop muted class="video-background" playsinline>
         <source src="fon/Видео фон для сайта   Абстрактный черный.mp4" type="video/mp4">
-        Ваш браузер не підтримує відео тег.
+        Your browser does not support the video tag.
     </video>
 
     <div class="content">
@@ -99,10 +100,8 @@
             <option value="pl">Polski</option>
         </select>
 
-        <div>
-            <button class="button freelancers" id="freelancers-button">Фрілансерам</button>
-            <button class="button clients" id="clients-button">Замовникам</button>
-        </div>
+        <a href="freelancers.html" class="button freelancers" id="freelancers-button">Фрілансерам</a>
+        <a href="clients.html" class="button clients" id="clients-button">Замовникам</a>
     </div>
 
     <script>
