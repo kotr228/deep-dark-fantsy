@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title>Сайт для фрілансерів</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
+            height: 100%;
             margin: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Запобігає прокрутці, якщо відео велике */
+        }
+        .video-background {
+            position: fixed; /* Фіксує відео на фоні */
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100; /* Забезпечує, що відео залишається під текстом та іншими елементами */
+        }
+        .content {
             position: relative;
+            z-index: 100;
         }
         .button {
             padding: 200px 200px;
@@ -35,7 +44,7 @@
         }
         .freelancers:hover, .clients:hover {
             background-color: #333;
-            transform: scale(1.1); /* Збільшення при наведенні */
+            transform: scale(1.1);
         }
         select {
             padding: 10px;
@@ -48,48 +57,52 @@
         nav {
             background-color: #f0f0f0;
             width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
             padding: 10px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex; /* Flex layout for horizontal alignment */
-            align-items: center; /* Vertical center alignment */
-            justify-content: flex-start; /* Align items to the left */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
         nav a {
             text-decoration: none;
             color: #333;
-            padding: 15px 20px; /* Larger padding */
+            padding: 15px 20px;
             margin: 0 10px;
-            font-size: 18px; /* Larger font size */
-            border-radius: 5px; /* Rounded corners for aesthetic */
+            font-size: 18px;
+            border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
             background-color: #ddd;
-            transform: scale(1.1); /* Збільшення при наведенні */
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="pricing.html" id="nav-pricing">Цінова політика</a>
-        <a href="privacy.html" id="nav-privacy">Політика конфіденційності</a>
-        <a href="about.html" id="nav-about">Про нас</a>
-        <a href="advertising.html" id="nav-advertising">Реклама</a>
-        <a href="support.html" id="nav-support">Служба підтримки</a>
-    </nav>
+    <video autoplay loop muted class="video-background" playsinline>
+        <source src="fon/Видео фон для сайта   Абстрактный черный.mp4" type="video/mp4">
+        Ваш браузер не підтримує відео тег.
+    </video>
 
-    <select id="language-select" onchange="changeLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="uk" selected>Українська</option>
-        <option value="pl">Polski</option>
-    </select>
+    <div class="content">
+        <nav>
+            <a href="pricing.html" id="nav-pricing">Цінова політика</a>
+            <a href="privacy.html" id="nav-privacy">Політика конфіденційності</a>
+            <a href="about.html" id="nav-about">Про нас</a>
+            <a href="advertising.html" id="nav-advertising">Реклама</a>
+            <a href="support.html" id="nav-support">Служба підтримки</a>
+        </nav>
 
-    <div>
-        <button class="button freelancers" id="freelancers-button">Фрілансерам</button>
-        <button class="button clients" id="clients-button">Замовникам</button>
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="uk" selected>Українська</option>
+            <option value="pl">Polski</option>
+        </select>
+
+        <div>
+            <button class="button freelancers" id="freelancers-button">Фрілансерам</button>
+            <button class="button clients" id="clients-button">Замовникам</button>
+        </div>
     </div>
 
     <script>
