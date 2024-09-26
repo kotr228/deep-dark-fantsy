@@ -1,9 +1,78 @@
 <!DOCTYPE html>
-<html>
- <head>
-    
- </head>
- <body>
-<colgroup> 5 </colgroup>
- </body>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт для фрілансерів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+        .button {
+            padding: 200px 200px;
+            font-size: 24px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .freelancers {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .clients {
+            background-color: #008CBA;
+            color: white;
+        }
+        .freelancers:hover, .clients:hover {
+            background-color: #333;
+        }
+        select {
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="uk" selected>Українська</option>
+        <option value="pl">Polski</option>
+    </select>
+
+    <div>
+        <button class="button freelancers" id="freelancers-button">Фрілансерам</button>
+        <button class="button clients" id="clients-button">Замовникам</button>
+    </div>
+
+    <script>
+        function changeLanguage(language) {
+            var freelancersText = {
+                en: 'For freelancers',
+                uk: 'Фрілансерам',
+                pl: 'Dla freelancerów'
+            };
+            var clientsText = {
+                en: 'For clients',
+                uk: 'Замовникам',
+                pl: 'Dla klientów'
+            };
+            document.getElementById('freelancers-button').textContent = freelancersText[language];
+            document.getElementById('clients-button').textContent = clientsText[language];
+        }
+    </script>
+</body>
 </html>
